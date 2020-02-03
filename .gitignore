@@ -103,7 +103,6 @@ venv.bak/
 .mypy_cache/
 
 # Django
-db.sqlite3
 media/
 
 # VSCode
