@@ -1,6 +1,7 @@
 """Posts views."""
 
 # Django
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 # Utilities
@@ -18,7 +19,7 @@ posts = [
         'photo': 'https://picsum.photos/800/600?image=1036',
     },
     {
-        'title': 'Milky Way',
+        'title': 'Via Láctea',
         'user': {
             'name': 'Christian Van der Henst',
             'picture': 'https://picsum.photos/60/60/?image=1005'
@@ -27,7 +28,7 @@ posts = [
         'photo': 'https://picsum.photos/800/800/?image=903',
     },
     {
-        'title': 'New Auditorium',
+        'title': 'Nuevo auditorio',
         'user': {
             'name': 'Uriel (thespianartist)',
             'picture': 'https://picsum.photos/60/60/?image=883'
@@ -38,6 +39,7 @@ posts = [
 ]
 
 
+@login_required
 def list_posts(request):
     """List existing posts."""
-    return render(request, 'feed.html', {'posts': posts})
+    return render(request, 'posts/feed.html', {'posts': posts})
